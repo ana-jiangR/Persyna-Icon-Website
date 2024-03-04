@@ -10,7 +10,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Persyna Icon</title>
+        <title>Persyna Icon 人格图鉴社</title>
+        <meta
+          name="description"
+          content="通过人格类型学领域的知识理论传播，以帮助更多个体挖掘自身天赋与热情、进行深刻的内在探索;秉持着个体人格价值无法被取代、无法被定义、无法被量化的理念，鼓励所有独特个体活出自己的人生价值。"
+        />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
