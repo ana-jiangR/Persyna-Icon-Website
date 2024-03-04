@@ -6,13 +6,20 @@ const Cursor = () => {
   const router = useRouter();
 
   React.useEffect(() => {
-    // 应用鼠标特效
-    mouseEffect();
+    // 定义媒体查询
+    const isMobileOrTablet = window.matchMedia("(max-width: 768px)");
+
+    // 应用鼠标特效，除非在移动设备上
+    if (!isMobileOrTablet.matches) {
+      mouseEffect();
+    }
 
     // 监听路由变化
     const handleRouteChange = () => {
       // 当路由变化时，重新应用鼠标特效
-      mouseEffect();
+      if (!isMobileOrTablet.matches) {
+        mouseEffect();
+      }
     };
 
     // 添加路由变化监听器
