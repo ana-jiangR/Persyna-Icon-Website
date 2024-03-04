@@ -2,8 +2,6 @@ import React from "react";
 import MainLayout from "../../layouts/main";
 import PageHeader from "../../components/Page-header";
 import PostDetails from "../../components/Post-details";
-import Blog1Data from "../../data/blog1.json";
-import slug from "../../components/Post-details/[slug]"
 
 const BlogDetails = () => {
   React.useEffect(() => {
