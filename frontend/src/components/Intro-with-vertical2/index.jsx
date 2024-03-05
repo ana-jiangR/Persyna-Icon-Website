@@ -27,6 +27,16 @@ const IntroWithVertical2 = () => {
   const navigationNextRef = React.useRef(null);
   const paginationRef = React.useRef(null);
 
+  const isMobileOrTablet = () => {
+    return (
+      window.innerWidth < 768 ||
+      window.innerHeight < 768 ||
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    );
+  };
+
   return (
     <>
       <header className="slid-half">
@@ -52,6 +62,18 @@ const IntroWithVertical2 = () => {
               loop={true}
               grabCursor={true}
               watchSlidesProgress={true}
+              allowTouchMove={!isMobileOrTablet()} // Disable touch events for mobile and tablet
+              onTouchStart={(e) => {
+                // Enable touch events if touch starts on navigation arrows
+                if (
+                  e.target === navigationPrevRef.current ||
+                  e.target === navigationNextRef.current
+                ) {
+                  return true;
+                } else {
+                  return false;
+                }
+              }}
               onBeforeInit={(swiper) => {
                 swiper.params.navigation.prevEl = navigationPrevRef.current;
                 swiper.params.navigation.nextEl = navigationNextRef.current;
